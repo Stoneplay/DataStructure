@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{4B1E9A1E-2E89-4AB2-A93E-AE8DB686A526}</ProjectGuid>
+    <ProjectGuid>{0988A5A1-5E76-40C9-8D59-3A3F1187348F}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>SingleList</RootNamespace>
+    <RootNamespace>LinkedList</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,8 +139,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ListNode.h" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="SingleList.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SingleList.h" />
