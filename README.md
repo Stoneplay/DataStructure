@@ -5,5 +5,5 @@
 
 ## &emsp;&emsp;3. 单链表：[单链表](https://github.com/Stoneplay/DataStructure/tree/master/LinkedList)
 
-## &emsp;&emsp;4. 二叉堆（以最小堆为例）:[最小堆](https://github.com/Stoneplay/DataStructure/tree/master/MinHeap)
+## &emsp;&emsp;4. 二叉堆（以最小堆为例）：[最小堆](https://github.com/Stoneplay/DataStructure/tree/master/MinHeap)
 
