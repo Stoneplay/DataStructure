@@ -15,6 +15,7 @@ public:
 
 template<typename EleType>
 Node<EleType>::Node() {
+	element = 0;
 	next = NULL;
 }
 

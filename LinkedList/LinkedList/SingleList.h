@@ -43,7 +43,7 @@ LinkedList<EleType>::LinkedList(const EleType *eles, const int n) {
 	head = new Node<EleType>;
 
 	Node<EleType> *p = head;
-	for (size_t i = 0; i < n; i++) {
+	for (int i = 0; i < n; i++) {
 		p->next = new Node<EleType>(eles[i]);
 		p = p->next;
 	}
