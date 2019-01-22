@@ -1,7 +1,7 @@
 # 常用数据结构的实现（C++模板类）
 ## &emsp;&emsp;1. 栈：[栈](https://github.com/Stoneplay/DataStructure/tree/master/Stack)
 
-## &emsp;&emsp;2. 顺序队列
+## &emsp;&emsp;2. 顺序队列：[单向顺序队列](https://github.com/Stoneplay/DataStructure/tree/master/Queue)
 
 ## &emsp;&emsp;3. 单向顺序链表：[单向顺序链表](https://github.com/Stoneplay/DataStructure/tree/master/LinkedList)
 
