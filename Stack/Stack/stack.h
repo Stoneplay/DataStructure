@@ -15,6 +15,7 @@ public:
 	void Push(const EleType);	// 入栈
 	EleType Pop();				// 出栈
 	int size();					// 栈的当前大小
+	void MakeEmpty();			// 清空栈
 	void Print();				// 打印栈中的所有元素
 private:
     int top;					// 栈顶指针
@@ -68,6 +69,12 @@ EleType Stack<EleType>::Pop() {
 	}
 
 	return arr[top--];
+}
+
+/* 清空栈 */
+template<typename EleType>
+void Stack<EleType>::MakeEmpty() {
+	top = 0;
 }
 
 /* 栈的当前大小 */

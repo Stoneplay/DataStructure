@@ -23,11 +23,18 @@ int main()
 
 	/* Pop≤‚ ‘ */
 	cout << "The element by popping : ";
-	for (int i = 0; i < l; i++) {
+	for (int i = 0; i < l - 2; i++) {
 		cout << s.Pop() << ' ';
 	}
 	cout << endl;
 	cout << "The element int the stack after popping : ";
+	s.Print();
+	cout << endl;
+
+	/* MakeEmpty≤‚ ‘ */
+	s.MakeEmpty();
+	cout << "The size of stack after making empty : ";
+	cout << s.size() << endl;
 	s.Print();
 	cout << endl;
 
