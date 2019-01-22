@@ -1,4 +1,4 @@
-# 常用数据结构的实现（C++）
+# 常用数据结构的实现（C++模板类）
 ## &emsp;&emsp;1. 栈：[栈](https://github.com/Stoneplay/DataStructure/tree/master/Stack)
 
 ## &emsp;&emsp;2. 队列
