@@ -12,12 +12,12 @@ public:
 	LinkedList(const EleType *eles, const int n); // 将数组中指定数量的元素组成链表
 	~LinkedList();
 	int Length();					// 返回链表的长度
-	int FindKth(int k);				// 返回链表中指定位置的节点的值（从1开始计数，下同）
-	int FindPosition(const int val);// 查找节点在链表中的位置
-	void Append(const int val);		// 在链表末尾添加节点
-	void Insert(const int val, int k);	// 将节点插在链表的指定位置（插完之后）
-	void Delete(const int val);		// 删除链表中指定的节点
-	void DeleteKth(int k);			// 删除链表中的第k个节点
+	int FindKth(int);				// 返回链表中指定位置的节点的值（从1开始计数，下同）
+	int FindPosition(const int);	// 查找节点在链表中的位置
+	void Append(const int);			// 在链表末尾添加节点
+	void Insert(const int, int);	// 将节点插在链表的指定位置（插完之后）
+	void Delete(const int);			// 删除链表中指定的节点
+	void DeleteKth(int);			// 删除链表中的第k个节点
 	void Print();					// 打印链表中所有的节点
 	void Clear();					// 删除链表中除头结点的所有元素
 
