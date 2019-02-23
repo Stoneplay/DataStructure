@@ -8,3 +8,7 @@
 
 4. [最小二叉堆](https://github.com/Stoneplay/DataStructure/tree/master/MinHeap)
 
+5. [二叉搜索树]()
+6. [二叉平衡树]()
+7. [并查集](https://github.com/Stoneplay/DataStructure/tree/master/UnionFind)
+8. [Trie树]()
