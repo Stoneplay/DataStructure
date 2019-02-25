@@ -1,7 +1,7 @@
 #include "BinarySearchTree.h"
 
 int main() {
-	BinSearchTree<int> bt;
+	BinSearchTree<int> bt;		// ²âÊÔÓÃÀı£º5 2 8 1 4 6 9 3 7
 	int num;
 
 	/* Insert²âÊÔ */
