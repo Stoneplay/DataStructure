@@ -28,8 +28,8 @@ void TraverseByLevelOrder(TreeNode*);
 int main() {
 
 	/* 层次建树 */
-	//TreeNode *root1 = MakeTreeByLevelOrder();
-	//TraverseByLevelOrder(root1);
+	TreeNode *root1 = MakeTreeByLevelOrder();
+	TraverseByLevelOrder(root1);
 
 	vector<int> pre{ 1, 2, 4, 5, 3, 6, 7 };
 	vector<int> in{ 4, 2, 5, 1, 6, 3, 7 };
@@ -64,35 +64,31 @@ int main() {
 /* 层次序列建树 */
 TreeNode* MakeTreeByLevelOrder() {
 	int value;
-	TreeNode *root;
+	TreeNode *root = NULL;
 	queue<TreeNode*> q;
 
-	if (cin >> value) {			// 根节点
-		if (value == EmptyNode) {
-			return NULL;
-		}
-		else {
-			root = new TreeNode(value);
-			q.push(root);
-			while (!q.empty()) {
-				TreeNode *t = q.front();
-				q.pop();
+	cin >> value;
+	if (value) {
+		root = new TreeNode(value);
+		q.push(root);
 
-				cin >> value;	// 左子树
-				if (value != EmptyNode) {
-					t->left = new TreeNode(value);
-					q.push(t->left);
-				}
+		while (!q.empty()) {
+			TreeNode *t = q.front();
+			q.pop();
 
-				cin >> value;	// 右子树
-				if (value != EmptyNode) {
-					t->right = new TreeNode(value);
-					q.push(t->right);
-				}
+			cin >> value;
+			if (value) {
+				t->left = new TreeNode(value);
+				q.push(t->left);
+			}
+
+			cin >> value;
+			if (value) {
+				t->right = new TreeNode(value);
+				q.push(t->right);
 			}
 		}
 	}
-
 	return root;
 }
 
@@ -174,32 +170,35 @@ void TraverseByRecurPreOrder(TreeNode* root) {
 void TraverseByPreOrder(TreeNode* root) {
 	if (!root) return;
 
-	//stack<TreeNode*> s;
-	//TreeNode *t = root;
-	//while (t || !s.empty()) {
-	//	while (t) {
-	//		cout << t->val << ' ';
-	//		s.push(t);
-	//		t = t->left;
-	//	}
-
-	//	if (!s.empty()) {
-	//		t = s.top();
-	//		s.pop();
-	//		t = t->right;
-	//	}
-	//}
-
 	stack<TreeNode*> s;
-	s.push(root);
+	while (root) {
+		cout << root->val << ' ';
+		s.push(root);
+		root = root->left;
+	}
+
 	while (!s.empty()) {
 		root = s.top();
 		s.pop();
-		cout << root->val << ' ';
 
-		if (root->right) s.push(root->right);
-		if (root->left) s.push(root->left);
+		root = root->right;
+		while (root) {
+			cout << root->val << ' ';
+			s.push(root);
+			root = root->left;
+		}
 	}
+
+	//stack<TreeNode*> s;
+	//s.push(root);
+	//while (!s.empty()) {
+	//	root = s.top();
+	//	s.pop();
+	//	cout << root->val << ' ';
+
+	//	if (root->right) s.push(root->right);
+	//	if (root->left) s.push(root->left);
+	//}
 
 	cout << endl;
 }
@@ -218,18 +217,20 @@ void TraverseByInOrder(TreeNode* root) {
 	if (!root) return;
 
 	stack<TreeNode*> s;
-	TreeNode *t = root;
-	while (t || !s.empty()) {
-		while (t) {
-			s.push(t);
-			t = t->left;
-		}
+	while (root) {
+		s.push(root);
+		root = root->left;
+	}
 
-		if (!s.empty()) {
-			t = s.top();
-			s.pop();
-			cout << t->val << ' ';
-			t = t->right;
+	while (!s.empty()) {
+		root = s.top();
+		s.pop();
+		cout << root->val << ' ';
+
+		root = root->right;
+		while (root) {
+			s.push(root);
+			root = root->left;
 		}
 	}
 	cout << endl;
@@ -249,28 +250,29 @@ void TraverseByPostOrder(TreeNode* root) {
 	if (!root) return;
 
 	stack<TreeNode*> s;
-	TreeNode *cur = root, *last = NULL;
+	TreeNode *last = NULL;
 
-	while (cur) {		// 到左子树最底端
-		s.push(cur);
-		cur = cur->left;
+	while (root) {		// 到左子树最底端
+		s.push(root);
+		root = root->left;
 	}
 
 	while (!s.empty()) {
-		cur = s.top();
+		root = s.top();
 		s.pop();
 
-		if (!cur->right || cur->right == last) {
-			cout << cur->val << ' ';	// 节点被访问的前提是右儿子为空或右儿子被访问过
-			last = cur;
+		if (!root->right || root->right == last) {
+			cout << root->val << ' ';	// 节点被访问的前提是右儿子为空或右儿子被访问过
+			last = root;
 		}
 		else {		// 存在右儿子且上一次访问的是左儿子,则保存当前节点,先访问右儿子
-			s.push(cur);
-			cur = cur->right;
-			while (cur) {
-				s.push(cur);
-				cur = cur->left;	// 到右子树的最左端
+			s.push(root);
+			root = root->right;
+			while (root) {
+				s.push(root);
+				root = root->left;	// 到右子树的最左端
 			}
 		}
 	}
+	cout << endl;
 }
