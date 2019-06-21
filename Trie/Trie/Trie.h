@@ -12,7 +12,7 @@ public:
 	~Trie();
 	void insert(string);		// 插入新单词
 	bool search(string);		// 查找单词
-	bool startsWith(string);	// 查找前缀
+	int startsWith(string);		// 查找前缀
 
 private:
 	TrieNode* root;			// Trie树的根节点(不存储任何信息)
@@ -33,6 +33,7 @@ void Trie::insert(string word) {
 			p->next[word[i] - 'a'] = new TrieNode();
 		}
 		p = p->next[word[i] - 'a'];
+		p->count++;
 	}
 	p->isWord = true;	// 此时p指向单词的最后一个字符,将该字符的结尾标志位置1
 }
@@ -50,17 +51,17 @@ bool Trie::search(string word) {
 	return p->isWord;
 }
 
-bool Trie::startsWith(string prefix) {
+int Trie::startsWith(string prefix) {
 	TrieNode *p = root;
 	for (size_t i = 0; i < prefix.length(); i++) {
 		if (p->next[prefix[i] - 'a']) {
 			p = p->next[prefix[i] - 'a'];	// 当前字符存在,继续查询
 		}
 		else {
-			return false;	// 当前字符不存在,查询结束
+			return 0;	// 当前字符不存在,查询结束
 		}
 	}
-	return true;
+	return p->count;
 }
 
 #endif // !_Trie_H

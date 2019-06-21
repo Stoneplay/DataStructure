@@ -9,7 +9,7 @@ class TrieNode {
 public:
 	TrieNode* next[MAX];	// 指向各个子节点的指针
 	bool isWord;			// 该节点处是否构成单词
-	int count;				// 单词前缀出现的次数
+	int count;				// 该字符出现的次数
 	TrieNode();
 	~TrieNode();
 };
